@@ -1,35 +1,13 @@
-import useSWR from "swr";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
-const URL = `https://example-apis.vercel.app/api/art`;
+export default function IndexPage() {
+  //renderizo esta pagina que quedo vacia siendo la principal a art-pieces
+  const router = useRouter();
 
-const fetcher = (URL) =>
-  fetch(URL).then((response) => {
-    //cargando el api
-    if (!response.ok) {
-      throw new Error("error!");
-    }
-    return response.json();
-  });
+  useEffect(() => {
+    router.push("/Spotlight");
+  }, [router]);
 
-export default function HomePage() {
-  const { data, error, isLoading } = useSWR(URL, fetcher);
-
-  if (isLoading) return <p> Loading... </p>;
-  if (error) return <p>error</p>;
-
-  return (
-    <div>
-      <h1>ART GALLERY</h1>
-      <ul>
-        {" "}
-        {data.map((artPiece) => (
-          <li key={artPiece.slug}>
-            <img src={artPiece.imageSource} alt={artPiece.name} width={200} />
-            <h2>{artPiece.name}</h2>
-            <p>{artPiece.artist}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+  return null;
 }
