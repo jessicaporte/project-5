@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useRouter } from "next/router"; // Uso useRouter para acceder a la URL
 import useSWR from "swr"; // Uso SWR para hacer el fetching de datos
 import {
@@ -8,6 +9,7 @@ import {
   ButtonStyled,
 } from "@/Styles/HomePageStyles";
 import FavoriteButton from "@/components/FavoriteButton";
+import ColorPalette from "@/components/PaletteColors";
 
 // Función fetcher para obtener datos de la API
 const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -59,6 +61,10 @@ const ArtPieceDetails = ({ favorites, setFavorites }) => {
           <p>
             <strong>Genre:</strong> {artPiece.genre}
           </p>
+          <p>
+            <strong>Color:</strong>
+          </p>
+          <ColorPalette colors={artPiece.colors} />
           <ButtonStyled onClick={() => router.push("/art-pieces")}>
             Back
           </ButtonStyled>{" "}

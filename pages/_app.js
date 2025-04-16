@@ -1,19 +1,22 @@
 import { useState, useEffect } from "react";
 import GlobalStyle from "../styles";
+import { PageContainer } from "@/Styles/HomePageStyles";
 
 export default function App({ Component, pageProps }) {
-  const [favorites, setFavorites] = useState([]); //para que favorites z set puedan ser leidos en todas las paginas , asi funcionan los corayon en todas
-  const [artPieces, setArtPieces] = useState([]);
+  const [favorites, setFavorites] = useState([]); // Estado para guardar los favoritos
+  const [artPieces, setArtPieces] = useState([]); // Estado para guardar la lista de todas las obras de arte que obtendrás desde una API.
 
   useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || []; //para guardar y mantener los favs
+    //Objetivo: Obtener los favoritos previamente guardados para que el usuario vea su lista de favoritos cuando recarga la página.
+    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || []; //para guardar y mantener los favs, []Si no hay nada en el localStorage, para evitar errores.
     setFavorites(storedFavorites);
-  }, []);
+  }, []); //se ejecuta una sola vez cuando el componente App se monta
 
-  // Guardar favoritos en localStorage cada vez que favorites cambie
   useEffect(() => {
+    //Objetivo: Asegurarse de que los cambios en los favoritos (añadir o eliminar) se reflejen y se persistan en localStorage.
     if (favorites.length > 0) {
-      localStorage.setItem("favorites", JSON.stringify(favorites));
+      //si el array favorites tiene elementos o no.
+      localStorage.setItem("favorites", JSON.stringify(favorites)); //convierte el array de favoritos a una cadena de texto .. guarda el array favorites en localStorage.
     }
   }, [favorites]);
 
@@ -33,14 +36,14 @@ export default function App({ Component, pageProps }) {
   }, []);
 
   return (
-    <>
+    <PageContainer>
       <GlobalStyle />
       <Component
         {...pageProps}
-        artPieces={artPieces}
-        favorites={favorites}
-        setFavorites={setFavorites}
+        artPieces={artPieces} //Pasa artPieces a todas las páginas
+        favorites={favorites} // Pasa favorites a todas las páginas
+        setFavorites={setFavorites} // Pasa setFavorites para modificar los favoritos
       />
-    </>
+    </PageContainer>
   );
 }

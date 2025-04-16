@@ -5,12 +5,14 @@ export const Container = styled.div`
   gap: 40px;
   justify-content: center;
   margin-top: 20px;
+  border: 2px solid #4b0012;
 `;
 
 export const StyledLink = styled.a`
   padding: 10px 20px;
   font-size: 16px;
   font-family: "Impact", fantasy;
+  border: 2px solid #4b0012;
 
   background-color: #ffddee;
   color: #4b0012;

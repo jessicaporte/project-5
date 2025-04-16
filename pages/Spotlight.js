@@ -1,10 +1,10 @@
 import useSWR from "swr";
-import Link from "next/link"; //para poder usar enlaces de navegación entre páginas en Next.js
 import { NavButtons } from "@/components/NavButtons";
 import {
   ArtPieceContainer,
   ArtPieceCard,
   StyledTitle,
+  PageContainer,
 } from "@/Styles/HomePageStyles";
 import FavoriteButton from "@/components/FavoriteButton";
 
@@ -25,7 +25,8 @@ const fetcher = (URL) =>
 function getRandom(dataLength) {
   //// Define la función `getRandom`, que toma como parámetro `dataLength`
   // (el número de elementos en el array) y retorna un índice aleatorio dentro de ese rango
-  return Math.floor(Math.random() * dataLength); // Devuelve un número aleatorio entero entre 0 y `dataLength - 1`, con esto me garantiz que el índice generado sea válido dentro del rango
+  return Math.floor(Math.random() * dataLength); // Devuelve un número aleatorio entero entre 0 y `dataLength - 1`,
+  // con esto me garantiz que el índice generado sea válido dentro del rango
 }
 
 export default function SpotlightPage({ favorites, setFavorites }) {
@@ -45,29 +46,32 @@ export default function SpotlightPage({ favorites, setFavorites }) {
 
   return (
     <div>
-      <StyledTitle>🎨ART GALLERY</StyledTitle>
-      <ArtPieceContainer>
-        <ArtPieceCard
-          key={randomArtPiece.slug}
-          style={{ position: "relative" }}
-        >
-          {/* El botón de favoritos ahora está dentro del contenedor de la obra de arte */}
-          <FavoriteButton
-            slug={randomArtPiece.slug} // El identificador único de la obra
-            favorites={favorites} // Lista de favoritos
-            setFavorites={setFavorites} // Función para actualizar los favoritos
-          />
-          <img
-            src={randomArtPiece.imageSource}
-            alt={randomArtPiece.name}
-            width={200}
-          />
-          <h2>{randomArtPiece.name}</h2>
-          <p>{randomArtPiece.artist}</p>
-        </ArtPieceCard>
-      </ArtPieceContainer>
+      {" "}
+      <PageContainer>
+        <StyledTitle>🎨ART GALLERY</StyledTitle>
+        <ArtPieceContainer>
+          <ArtPieceCard
+            key={randomArtPiece.slug}
+            style={{ position: "relative" }}
+          >
+            {/* El botón de favoritos ahora está dentro del contenedor de la obra de arte */}
+            <FavoriteButton
+              slug={randomArtPiece.slug} // El identificador único de la obra
+              favorites={favorites} // Lista de favoritos
+              setFavorites={setFavorites} // Función para actualizar los favoritos
+            />
+            <img
+              src={randomArtPiece.imageSource}
+              alt={randomArtPiece.name}
+              width={200}
+            />
+            <h2>{randomArtPiece.name}</h2>
+            <p>{randomArtPiece.artist}</p>
+          </ArtPieceCard>
+        </ArtPieceContainer>
 
-      <NavButtons />
+        <NavButtons />
+      </PageContainer>{" "}
     </div>
   );
 }

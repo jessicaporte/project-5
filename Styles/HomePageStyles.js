@@ -4,6 +4,10 @@ export const StyledLink = styled.a`
   text-decoration: none; /* Esto quita el subrayado */
   color: inherit; /* Esto mantiene el color original del texto */
 `;
+export const PageContainer = styled.div`
+  background-color: #f5e1e1; /* Fondo pastel suave */
+  min-height: 100vh; /* Asegúrate de que ocupe toda la pantalla */
+`;
 
 export const ArtPieceContainer = styled.div`
   display: flex; /* Usar Flexbox */
