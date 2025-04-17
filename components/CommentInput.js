@@ -1,4 +1,5 @@
-/*import { useState } from "react";
+import { useState } from "react";
+import { SubmitButton } from "@/Styles/HomePageStyles";
 
 // El Input Gestiona el texto que se ingresa y lo envía cuando se hace clic en el botón "Enviar"
 export default function CommentInput({ addComment }) {
@@ -28,8 +29,7 @@ export default function CommentInput({ addComment }) {
         cols="50"
         required // Se asegura de que el textarea no esté vacío
       />
-      <button type="submit">Enviar</button>
+      <SubmitButton type="submit">Enviar</SubmitButton>
     </form>
   );
 }
-*/

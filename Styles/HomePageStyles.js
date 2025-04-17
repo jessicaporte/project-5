@@ -76,3 +76,59 @@ export const ButtonStyled = styled.button`
     color: white;
   }
 `;
+export const CommentsBox = styled.div`
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+  text-align: left;
+  word-wrap: break-word; // 💥 Esto es lo más importante
+  overflow-wrap: break-word; // Alternativa para compatibilidad
+  max-width: 100%; // Asegura que se ajuste al contenedor padre
+  white-space: pre-wrap; // Mantiene saltos de línea y respeta espacios
+
+  textarea {
+    width: 100%;
+    border-radius: 5px;
+    padding: 6px;
+    resize: none;
+  }
+
+  ul {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  li {
+    margin-top: 10px;
+    background-color: #f3f3f3;
+    padding: 8px;
+    border-radius: 5px;
+  }
+
+  h3 {
+    margin-bottom: 10px;
+  }
+
+  strong {
+    color: #e30b5d;
+  }
+`;
+
+export const SubmitButton = styled.button`
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: "Impact", fantasy;
+
+  background-color: #ffddee;
+  color: #4b0012;
+  text-decoration: none; /* quita el subrayado */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: #e30b5d;
+    color: white;
+  }
+`;

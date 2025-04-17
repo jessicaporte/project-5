@@ -1,6 +1,10 @@
 import styled from "styled-components"; // Importa styled-components para poder usar estilos en JS
 
 export const Container = styled.div`
+  position: bottom;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   gap: 40px;
   justify-content: center;
@@ -12,7 +16,6 @@ export const StyledLink = styled.a`
   padding: 10px 20px;
   font-size: 16px;
   font-family: "Impact", fantasy;
-  border: 2px solid #4b0012;
 
   background-color: #ffddee;
   color: #4b0012;
