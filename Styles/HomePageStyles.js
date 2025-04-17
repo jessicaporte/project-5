@@ -4,10 +4,6 @@ export const StyledLink = styled.a`
   text-decoration: none; /* Esto quita el subrayado */
   color: inherit; /* Esto mantiene el color original del texto */
 `;
-export const PageContainer = styled.div`
-  background-color: #f5e1e1; /* Fondo pastel suave */
-  min-height: 100vh; /* Asegúrate de que ocupe toda la pantalla */
-`;
 
 export const ArtPieceContainer = styled.div`
   display: flex; /* Usar Flexbox */
@@ -131,4 +127,13 @@ export const SubmitButton = styled.button`
     background-color: #e30b5d;
     color: white;
   }
+`;
+export const BackgroundGradient = styled.div`
+  position: fixed;
+  inset: -150px;
+  background: ${({ colors }) =>
+    `linear-gradient(170deg, ${colors.join(", ")})`};
+  z-index: -2;
+  filter: blur(100px);
+  pointer-events: none; // importante para que no interfiera con clics
 `;

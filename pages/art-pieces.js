@@ -6,7 +6,6 @@ import {
   ArtPieceContainer,
   ArtPieceCard,
   StyledTitle,
-  PageContainer,
 } from "@/Styles/HomePageStyles";
 
 // Crear un componente de enlace sin subrayado
@@ -32,7 +31,7 @@ export default function HomePage({ favorites, setFavorites }) {
   return (
     <div>
       {" "}
-      <PageContainer>
+      <>
         <StyledTitle> 🎨 ART GALLERY</StyledTitle>
         <ArtPieceContainer data-testid="art-piece-container">
           {data.map((artPiece) => (
@@ -60,7 +59,7 @@ export default function HomePage({ favorites, setFavorites }) {
         </ArtPieceContainer>
 
         <NavButtons />
-      </PageContainer>
+      </>
     </div>
   );
 }

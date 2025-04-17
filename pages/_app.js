@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import GlobalStyle from "../styles";
-import { PageContainer } from "@/Styles/HomePageStyles";
 
 export default function App({ Component, pageProps }) {
   const [favorites, setFavorites] = useState([]); // Estado para guardar los favoritos
@@ -16,6 +15,7 @@ export default function App({ Component, pageProps }) {
     //Objetivo: Asegurarse de que los cambios en los favoritos (añadir o eliminar) se reflejen y se persistan en localStorage.
     if (favorites.length > 0) {
       //si el array favorites tiene elementos o no.
+
       localStorage.setItem("favorites", JSON.stringify(favorites)); //convierte el array de favoritos a una cadena de texto .. guarda el array favorites en localStorage.
     }
   }, [favorites]);
@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }) {
   }, []);
 
   return (
-    <PageContainer>
+    <>
       <GlobalStyle />
       <Component
         {...pageProps}
@@ -44,6 +44,6 @@ export default function App({ Component, pageProps }) {
         favorites={favorites} // Pasa favorites a todas las páginas
         setFavorites={setFavorites} // Pasa setFavorites para modificar los favoritos
       />
-    </PageContainer>
+    </>
   );
 }

@@ -6,11 +6,12 @@ import {
   ArtPieceCard,
   StyledTitle,
   ButtonStyled,
+  CommentsBox,
+  BackgroundGradient,
 } from "@/Styles/HomePageStyles";
 import FavoriteButton from "@/components/FavoriteButton";
 import ColorPalette from "@/components/PaletteColors";
 import CommentInput from "@/components/CommentInput";
-import { CommentsBox } from "@/Styles/HomePageStyles";
 
 // Función fetcher para obtener datos de la API
 const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -71,6 +72,7 @@ const ArtPieceDetails = ({ favorites, setFavorites }) => {
   return (
     <div>
       {/* aca detalles de la obra de arte */}
+      {artPiece.colors && <BackgroundGradient colors={artPiece.colors} />}
 
       <StyledTitle>{artPiece.name}</StyledTitle>
       <ArtPieceContainer>
