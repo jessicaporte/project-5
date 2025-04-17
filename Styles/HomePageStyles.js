@@ -47,6 +47,8 @@ export const StyledTitle = styled.h1`
   margin-bottom: 20px;
   font-family: "Impact", fantasy;
   color: #4b0012;
+  background-color: #f5f5f5;
+  border-radius: 50%;
 `;
 
 export const ButtonStyled = styled.button`
