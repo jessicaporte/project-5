@@ -3,7 +3,6 @@ import {
   ArtPieceContainer,
   ArtPieceCard,
   StyledTitle,
-  PageContainer,
 } from "@/Styles/HomePageStyles";
 import { NavButtons } from "@/components/NavButtons";
 
@@ -15,9 +14,8 @@ export default function FavoritesPage({ artPieces, favorites, setFavorites }) {
   );
 
   return (
-    <PageContainer>
+    <>
       <div>
-        {" "}
         <StyledTitle> 🎨 My Favorite Art Pieces</StyledTitle>
         <ArtPieceContainer>
           {favoriteArtPieces.map((piece) => (
@@ -34,7 +32,7 @@ export default function FavoritesPage({ artPieces, favorites, setFavorites }) {
           ))}
         </ArtPieceContainer>
         <NavButtons />
-      </div>{" "}
-    </PageContainer>
+      </div>
+    </>
   );
 }

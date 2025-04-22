@@ -4,7 +4,6 @@ import {
   ArtPieceContainer,
   ArtPieceCard,
   StyledTitle,
-  PageContainer,
 } from "@/Styles/HomePageStyles";
 import FavoriteButton from "@/components/FavoriteButton";
 
@@ -47,7 +46,7 @@ export default function SpotlightPage({ favorites, setFavorites }) {
   return (
     <div>
       {" "}
-      <PageContainer>
+      <>
         <StyledTitle>🎨ART GALLERY</StyledTitle>
         <ArtPieceContainer>
           <ArtPieceCard
@@ -71,7 +70,7 @@ export default function SpotlightPage({ favorites, setFavorites }) {
         </ArtPieceContainer>
 
         <NavButtons />
-      </PageContainer>{" "}
+      </>{" "}
     </div>
   );
 }
